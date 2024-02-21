@@ -20,7 +20,7 @@ button {
 }
 
 #blueButton {
-  background-color: blue;
+  background-color: rgb(108, 108, 139);
 }
 
 #redCounter, #blueCounter {
@@ -33,5 +33,5 @@ button {
 }
 
 #blueCounter {
-  color: blue;
+  color: rgb(132, 132, 151);
 }
