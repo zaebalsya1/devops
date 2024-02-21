@@ -1,6 +1,8 @@
 describe('Проверка цветов кнопок', () => {
   beforeAll(async () => {
-    await page.goto('file:///C:/Users/Albert/Documents/DevOps_project/index.html');
+    //await page.goto('file:///C:/Users/Albert/Documents/DevOps_project/index.html');
+    await page.goto('http://localhost:8080/index.html');
+
 
 
   });
