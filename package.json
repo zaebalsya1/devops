@@ -271,7 +271,7 @@
     "puppeteer": "^22.1.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "npx jest"
   },
   "keywords": [],
   "author": "",
