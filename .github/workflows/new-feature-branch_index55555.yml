@@ -25,7 +25,17 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          npm run test --if-present
+          # Проверка прав доступа к исполняемым файлам в node_modules/.bin
+          ls -l ./node_modules/.bin
+          # Предоставление прав на выполнение для jest
+          chmod +x ./node_modules/.bin/jest
+          # Запуск тестов
+          npm test
+
+      - name: Build Docker image and run tests
+        run: |
+          docker build -t my-node-app .
+          docker run my-node-app
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
@@ -43,7 +53,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
+      id-token: write # This is required for requesting the JWT
 
     steps:
       - name: Download artifact from build job
@@ -68,4 +78,3 @@ jobs:
           app-name: 'index55555'
           slot-name: 'Production'
           package: .
-          
