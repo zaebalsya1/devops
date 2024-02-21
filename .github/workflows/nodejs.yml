@@ -26,6 +26,13 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
+    - name: Start HTTP server
+      run: npx http-server ./ -p 8080 &
+      working-directory: . # Убедитесь, что это корректный путь к вашему index.html
+
+    - name: Wait for HTTP server to start
+      run: sleep 5
+
     - name: Check permissions
       run: ls -l ./node_modules/.bin
 
